@@ -1,10 +1,28 @@
 {
   "heroes": [
     {
-      "name": "dsnvsjdvksdnvjkdsv",
-      "description": "sdvjdsjvsdhgbkjshgkds",
-      "element": "wind",
-      "id": "77282163-ad81-4039-bca8-c94a5b60bc44"
+      "name": "efefefe",
+      "description": "fefeeff4f44f",
+      "element": "earth",
+      "id": "d831121a-058d-48c3-bf81-13b4f93deb36"
+    },
+    {
+      "name": "уацуацуауцауца",
+      "description": "цуацуацуауцауа",
+      "element": "earth",
+      "id": "4789fb92-9eee-4c27-81f7-12aec0f7be57"
+    },
+    {
+      "name": "сусусусусу",
+      "description": "свсцсцсусусус",
+      "element": "water",
+      "id": "5f1b4acd-b92b-4616-9bbf-d8c39477809f"
+    },
+    {
+      "name": "акак",
+      "description": "dedededecece",
+      "element": "water",
+      "id": "dd1388a8-e165-49a7-812c-ad5ddf9463f3"
     }
   ],
   "filters": [

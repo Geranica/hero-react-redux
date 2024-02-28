@@ -18,7 +18,7 @@ import {
 const HeroesFilters = () => {
   const { request } = useHttp();
   const dispatch = useDispatch();
-  const { filters, activeFilter } = useSelector((state) => state);
+  const { filters, activeFilter } = useSelector((state) => state.filters);
 
   useEffect(() => {
     dispatch(filtersFetching());
