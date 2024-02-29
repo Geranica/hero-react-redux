@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import heroes from "../reducers/heroes";
-import filters from "../reducers/filters";
+import heroes from "../components/heroesList/heroesSlise";
+import filters from "../components/heroesFilters/filtersSlice";
 
 const stringMiddleware = (store) => (next) => (action) => {
   if (typeof action === "string") {
@@ -20,6 +20,7 @@ const store = configureStore({
 
 export default store;
 
-//store enhancers - это функции, которые предоставляют дополнительную функциональность для стора.
 
+
+//store enhancers - это функции, которые предоставляют дополнительную функциональность для стора.
 //Middleware - это слой программного обеспечения, который позволяет обрабатывать действия (actions) перед тем, как они достигнут редюсера. Middleware может изменять, логировать, асинхронно обрабатывать действия и многое другое. Направлен на изменение стандартной работы функции dispatch.

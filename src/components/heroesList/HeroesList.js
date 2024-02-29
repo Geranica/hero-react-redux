@@ -6,7 +6,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 //для мемоизации
 import { createSelector } from "reselect";
 
-import { fetchHeroes } from "../../actions";
+import { fetchHeroes } from "../../actions/index";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
 

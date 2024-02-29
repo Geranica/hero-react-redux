@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useHttp } from "../../hooks/http.hook";
 
 import { useDispatch } from "react-redux";
-import { addNewHero } from "../../actions";
+import { addNewHero } from "../heroesList/heroesSlise";
 
 // Задача для этого компонента:
 // Реализовать создание нового героя с введенными данными. Он должен попадать
