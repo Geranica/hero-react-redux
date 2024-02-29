@@ -23,13 +23,9 @@ const heroes = (state = initialState, action) => {
       };
 
     case "DELETE_HERO":
-      const updatedHeroes = state.heroes.filter(
-        (item) => item.id !== action.payload
-      );
-
       return {
         ...state,
-        heroes: updatedHeroes,
+        heroes: state.heroes.filter((item) => item.id !== action.payload),
       };
     case "ADD_NEW_HERO":
       return {
