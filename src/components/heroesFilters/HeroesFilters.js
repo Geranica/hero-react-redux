@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHttp } from "../../hooks/http.hook";
-import { changeFilter } from "./filtersSlice";
-import { fetchFilters } from "../../actions";
+import { changeFilter, fetchFilters } from "./filtersSlice";
 
 // Задача для этого компонента:
 // Фильтры должны формироваться на основании загруженных данных +
@@ -12,12 +10,11 @@ import { fetchFilters } from "../../actions";
 // Представьте, что вы попросили бэкенд-разработчика об этом
 
 const HeroesFilters = () => {
-  const { request } = useHttp();
   const dispatch = useDispatch();
   const { filters, activeFilter } = useSelector((state) => state.filters);
 
   useEffect(() => {
-    dispatch(fetchFilters(request));
+    dispatch(fetchFilters());
   }, []);
 
   const renderFilters = (filters) => {
