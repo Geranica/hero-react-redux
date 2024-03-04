@@ -2,30 +2,10 @@ import "../heroesAddForm/HeroesAddForm.scss";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
-import { useHttp } from "../../hooks/http.hook";
-
-import { useDispatch } from "react-redux";
-import { addNewHero } from "../heroesList/heroesSlise";
-
-// Задача для этого компонента:
-// Реализовать создание нового героя с введенными данными. Он должен попадать
-// в общее состояние и отображаться в списке + фильтроваться
-// Уникальный идентификатор персонажа можно сгенерировать через uiid
-// Усложненная задача:
-// Персонаж создается и в файле json при помощи метода POST
-// Дополнительно:
-// Элементы <option></option> желательно сформировать на базе
-// данных из фильтров
+import { useCreateHeroMutation } from "../../api/apiSlice";
 
 const HeroesAddForm = () => {
-  const { request } = useHttp();
-  const dispatch = useDispatch();
-
-  const addHero = (data) => {
-    request("http://localhost:3001/heroes", "POST", JSON.stringify(data))
-      .then(() => dispatch(addNewHero(data)))
-      .catch((e) => console.log(e));
-  };
+  const [createHero, { isLoading }] = useCreateHeroMutation();
 
   return (
     <Formik
@@ -45,7 +25,7 @@ const HeroesAddForm = () => {
       })}
       onSubmit={(values, { resetForm }) => {
         resetForm();
-        addHero({ ...values, id: uuidv4() });
+        createHero({ ...values, id: uuidv4() }).unwrap();
       }}
     >
       <Form className="border p-4 shadow-lg rounded">

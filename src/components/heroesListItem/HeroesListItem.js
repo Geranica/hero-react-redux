@@ -1,20 +1,7 @@
-import { useDispatch } from "react-redux";
-import { useHttp } from "../../hooks/http.hook";
-import { deleteHero } from "../heroesList/heroesSlise";
+import { useDeleteHeroMutation } from "../../api/apiSlice";
 
 const HeroesListItem = ({ name, description, element, id }) => {
-  const dispatch = useDispatch();
-  const { request } = useHttp();
-
-  const onDelete = (id) => {
-    request(`http://localhost:3001/heroes/${id}`, "DELETE")
-      .then(() => {
-        dispatch(deleteHero(id));
-      })
-      .catch((error) => {
-        console.error("Ошибка в handleClick:", error);
-      });
-  };
+  const [deleteHero, { isLoading }] = useDeleteHeroMutation();
 
   let elementClassName;
 
@@ -51,7 +38,7 @@ const HeroesListItem = ({ name, description, element, id }) => {
       </div>
       <span className="position-absolute top-0 start-100 translate-middle badge border rounded-pill bg-light">
         <button
-          onClick={() => onDelete(id)}
+          onClick={() => deleteHero(id)}
           type="button"
           className="btn-close btn-close"
           aria-label="Close"
