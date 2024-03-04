@@ -9,11 +9,9 @@ import { useHttp } from "../../hooks/http.hook";
 
 //адаптер можно дополнительно донастроить
 const heroesAdapter = createEntityAdapter();
-
 const initialState = heroesAdapter.getInitialState({
   heroesLoadingStatus: "idle",
 });
-
 
 export const fetchHeroes = createAsyncThunk("heroes/fetchHeroes", () => {
   const { request } = useHttp();
@@ -65,10 +63,8 @@ export const filteredHeroesSelector = createSelector(
 
 const { actions, reducer } = heroesSlice;
 export default reducer;
-export const {
-  heroesFetching,
-  heroesFetched,
-  heroesFetchingError,
-  addNewHero,
-  deleteHero,
-} = actions;
+export const { addNewHero, deleteHero } = actions;
+
+//selectors
+export const heroesLoadingStatusSelector = (state) =>
+  state.heroes.heroesLoadingStatus;
